@@ -1,0 +1,294 @@
+[
+  {
+    "brand": "Sony Ericsson",
+    "name": "XPERIA X10",
+    "type": "smartphone",
+    "typeDisplay": "sensor",
+    "date": 2009,
+    "rate": 9.4,
+    "price": 455,
+    "color": [
+      "62ff3d9551f33703263c4c6c",
+      "62ff3d9551f33703263c4c6d"
+    ],
+    "info": "62ff422e0e4b7727a3f1b311"
+  },
+  {
+    "brand": "Sony Ericsson",
+    "name": "W995",
+    "type": "slider",
+    "typeDisplay": "TFT",
+    "date": 2009,
+    "rate": 9.5,
+    "price": 380,
+    "color": [
+      "62ff3d9551f33703263c4c6c",
+      "62ff3d9551f33703263c4c6e",
+      "62ff3d9551f33703263c4c6f"
+    ],
+    "info": "62ff422e0e4b7727a3f1b312"
+  },
+  {
+    "brand": "Sony Ericsson",
+    "name": "K750i",
+    "type": "phone",
+    "typeDisplay": "TFT",
+    "date": 2005,
+    "rate": 9,
+    "price": 270,
+    "color": [
+      "62ff3d9551f33703263c4c6c",
+      "62ff3d9551f33703263c4c6e"
+    ],
+    "info": "62ff422e0e4b7727a3f1b313"
+  },
+  {
+    "brand": "Sony Ericsson",
+    "name": "K700i",
+    "type": "phone",
+    "typeDisplay": "TFT",
+    "date": 2004,
+    "rate": 8.5,
+    "price": 210,
+    "color": [
+      "62ff3d9551f33703263c4c6d",
+      "62ff3d9551f33703263c4c6e"
+    ],
+    "info": "62ff422e0e4b7727a3f1b314"
+  },
+  {
+    "brand": "Sony Ericsson",
+    "name": "T270i",
+    "type": "phone",
+    "typeDisplay": "TFT",
+    "date": 2008,
+    "rate": 6.2,
+    "price": 75,
+    "color": [
+      "62ff3d9551f33703263c4c6c",
+      "62ff3d9551f33703263c4c6e"
+    ],
+    "info": "62ff422e0e4b7727a3f1b315"
+  },
+  {
+    "brand": "Sony Ericsson",
+    "name": "W600i",
+    "type": "rotator",
+    "typeDisplay": "TFT",
+    "date": 2005,
+    "rate": 8.2,
+    "price": 220,
+    "color": [
+      "62ff3d9551f33703263c4c73"
+    ],
+    "info": "62ff422e0e4b7727a3f1b31d"
+  },
+  {
+    "brand": "Sony Ericsson",
+    "name": "W710i",
+    "type": "flip",
+    "typeDisplay": "TFT",
+    "date": 2006,
+    "rate": 8.8,
+    "price": 310,
+    "color": [
+      "62ff3d9551f33703263c4c6e",
+      "62ff3d9551f33703263c4c73"
+    ],
+    "info": "62ff422e0e4b7727a3f1b31e"
+  },
+  {
+    "brand": "Sony Ericsson",
+    "name": "W980",
+    "type": "flip",
+    "typeDisplay": "TFT",
+    "date": 2008,
+    "rate": 8.8,
+    "price": 300,
+    "color": [
+      "62ff3d9551f33703263c4c6c"
+    ],
+    "info": "62ff422e0e4b7727a3f1b31f"
+  },
+  {
+    "brand": "Nokia",
+    "name": "5800 XpressMusic",
+    "type": "smartphone",
+    "typeDisplay": "sensor",
+    "date": 2008,
+    "rate": 9.4,
+    "price": 400,
+    "color": [
+      "62ff3d9551f33703263c4c6c"
+    ],
+    "info": "62ff422e0e4b7727a3f1b317"
+  },
+  {
+    "brand": "Nokia",
+    "name": "6300",
+    "type": "phone",
+    "typeDisplay": "TFT",
+    "date": 2006,
+    "rate": 9.1,
+    "price": 190,
+    "color": [
+      "62ff3d9551f33703263c4c6c",
+      "62ff3d9551f33703263c4c6e",
+      "62ff3d9551f33703263c4c6f"
+    ],
+    "info": "62ff422e0e4b7727a3f1b316"
+  },
+  {
+    "brand": "Nokia",
+    "name": "7610",
+    "type": "smartphone",
+    "typeDisplay": "TFT",
+    "date": 2004,
+    "rate": 8.9,
+    "price": 285,
+    "color": [
+      "62ff3d9551f33703263c4c6c",
+      "62ff3d9551f33703263c4c6e"
+    ],
+    "info": "62ff422e0e4b7727a3f1b318"
+  },
+  {
+    "brand": "Nokia",
+    "name": "N90",
+    "type": "smartphone",
+    "typeDisplay": "TFT",
+    "date": 2005,
+    "rate": 8.4,
+    "price": 335,
+    "color": [
+      "62ff3d9551f33703263c4c6e"
+    ],
+    "info": "62ff422e0e4b7727a3f1b31a"
+  },
+  {
+    "brand": "Nokia",
+    "name": "7373",
+    "type": "rotator",
+    "typeDisplay": "TFT",
+    "date": 2006,
+    "rate": 9.2,
+    "price": 300,
+    "color": [
+      "62ff3d9551f33703263c4c70",
+      "62ff3d9551f33703263c4c6c"
+    ],
+    "info": "62ff422e0e4b7727a3f1b319"
+  },
+  {
+    "brand": "Nokia",
+    "name": "6131",
+    "type": "flip",
+    "typeDisplay": "TFT",
+    "date": 2006,
+    "rate": 9.2,
+    "price": 120,
+    "color": [
+      "62ff3d9551f33703263c4c6c",
+      "62ff3d9551f33703263c4c6d",
+      "62ff3d9551f33703263c4c6f",
+      "62ff3d9551f33703263c4c71"
+    ],
+    "info": "62ff422e0e4b7727a3f1b31b"
+  },
+  {
+    "brand": "Nokia",
+    "name": "Nokia 5610 XpressMusic",
+    "type": "slider",
+    "typeDisplay": "TFT",
+    "date": 2007,
+    "rate": 9.2,
+    "price": 270,
+    "color": [
+      "62ff3d9551f33703263c4c72",
+      "62ff3d9551f33703263c4c6f"
+    ],
+    "info": "62ff422e0e4b7727a3f1b31c"
+  },
+  {
+    "brand": "Motorola",
+    "name": "MPx200",
+    "type": "smartphone",
+    "typeDisplay": "TFT",
+    "date": 2003,
+    "rate": 8.8,
+    "price": 240,
+    "color": [
+      "62ff3d9551f33703263c4c6c"
+    ],
+    "info": "62ff422e0e4b7727a3f1b320"
+  },
+  {
+    "brand": "Motorola",
+    "name": "RIZR Z3",
+    "type": "slider",
+    "typeDisplay": "TFT",
+    "date": 2006,
+    "rate": 8.4,
+    "price": 160,
+    "color": [
+      "62ff3d9551f33703263c4c6c",
+      "62ff3d9551f33703263c4c72",
+      "62ff3d9551f33703263c4c6f"
+    ],
+    "info": "62ff422e0e4b7727a3f1b321"
+  },
+  {
+    "brand": "Motorola",
+    "name": "Aura",
+    "type": "rotator",
+    "typeDisplay": "TFT",
+    "date": 2008,
+    "rate": 7.3,
+    "price": 2000,
+    "color": [
+      "62ff3d9551f33703263c4c6e"
+    ],
+    "info": "62ff422e0e4b7727a3f1b322"
+  },
+  {
+    "brand": "Motorola",
+    "name": "RAZR V3",
+    "type": "flip",
+    "typeDisplay": "TFT",
+    "date": 2004,
+    "rate": 8.1,
+    "price": 150,
+    "color": [
+      "62ff3d9551f33703263c4c70",
+      "62ff3d9551f33703263c4c6c",
+      "62ff3d9551f33703263c4c6e"
+    ],
+    "info": "62ff422e0e4b7727a3f1b323"
+  },
+  {
+    "brand": "Motorola",
+    "name": "E398",
+    "type": "phone",
+    "typeDisplay": "TFT",
+    "date": 2004,
+    "rate": 6.9,
+    "price": 175,
+    "color": [
+      "62ff422e0e4b7727a3f1b324"
+    ],
+    "info": "62ff3d9451f33703263c4c53"
+  },
+  {
+    "brand": "Motorola",
+    "name": "SLVR L7e",
+    "type": "phone",
+    "typeDisplay": "TFT",
+    "date": 2006,
+    "rate": 8.9,
+    "price": 210,
+    "color": [
+      "62ff3d9551f33703263c4c72"
+    ],
+    "info": "62ff422e0e4b7727a3f1b325"
+  }
+]

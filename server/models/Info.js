@@ -1,7 +1,8 @@
 const {Schema, model} = require('mongoose')
 
 const schema = new Schema({
-  name: {
+  infoId: String,
+  value: {
     type: String,
     required: true
   }
@@ -9,4 +10,4 @@ const schema = new Schema({
   timestamps: true
 })
 
-module.exports = model('Profession', schema)
+module.exports = model('Info', schema)

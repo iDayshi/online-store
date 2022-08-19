@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  z-index: 1;
+}

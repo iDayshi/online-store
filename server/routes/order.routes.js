@@ -1,6 +1,6 @@
 const express = require('express')
-const auth = require("../middleware/auth.middleware")
-const Comment = require("../models/Comment")
+const auth = require('../middleware/auth.middleware')
+const Order = require("../models/Order")
 const router = express.Router({mergeParams: true})
 
 
@@ -8,8 +8,7 @@ router
   .route('/')
   .get(auth, async (req, res) => {
     try {
-      const {orderBy, equalTo} = req.query
-      const list = await Comment.find({[orderBy]: equalTo})
+      const list = await Order.find()
       res.send(list)
     } catch (err) {
       console.log(err.message)
@@ -20,11 +19,10 @@ router
   })
   .post(auth, async (req, res) => {
     try {
-      const newComment = await Comment.create({
+      const newOrder = await Order.create({
         ...req.body,
-        userId: req.user._id
       })
-      res.status(201).send(newComment)
+      res.status(201).send(newOrder)
     } catch (err) {
       console.log(err.message)
       res.status(500).json({
@@ -33,13 +31,13 @@ router
     }
   })
 
-router.delete('/:commentId', auth, async (req, res) => {
+router.delete('/:OrderId', auth, async (req, res) => {
   try {
-    const {commentId} = req.params
-    const removedComment = await Comment.findById(commentId)
+    const {orderId} = req.params
+    const removedOrder = await Order.findById(orderId)
 
-    if (removedComment.userId.toString() === req.user._id) {
-      await removedComment.remove()
+    if (removedOrder.userId.toString() === req.user._id) {
+      await removedOrder.remove()
       return res.send(null)
     } else {
       res.status(401).json({message: 'Unauthorized'})

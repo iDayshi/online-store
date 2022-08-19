@@ -1,10 +1,10 @@
 const express = require('express')
-const Phone = require('../models/Phone')
+const Color = require('../models/Color')
 const router = express.Router({mergeParams:true})
 
 router.get('/',  async (req, res) => {
   try{
-    const list = await Phone.find()
+    const list = await Color.find()
     res.status(200).send( list )
   }catch (err) {
     console.log(err.message)

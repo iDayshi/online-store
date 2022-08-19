@@ -1,10 +1,11 @@
 const express = require('express')
-const Info = require('../models/Info')
+const Phone = require('../models/Phone')
 const router = express.Router({mergeParams:true})
 
 router.get('/',  async (req, res) => {
   try{
-    const list = await Info.find()
+    const list = await Phone.find().populate("info").populate('color').
+    exec()
     res.status(200).send( list )
   }catch (err) {
     console.log(err.message)
@@ -13,6 +14,5 @@ router.get('/',  async (req, res) => {
     })
   }
 })
-
 
 module.exports = router
