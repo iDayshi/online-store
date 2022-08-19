@@ -5,6 +5,7 @@ import phonesService from "../service/phone.service";
 
 const initialState: IInitialStatePhones = {
   entities: null,
+  initialStatePhones: null,
   filterConfig: {
     brand: [],
     typeDisplay: [],
@@ -24,6 +25,7 @@ const phonesSlice = createSlice({
     },
     phonesReceved: (state, actions) => {
       state.entities = actions.payload;
+      state.initialStatePhones = actions.payload;
       state.isLoading = false;
     },
     phonesRequestFieled: (state, actions) => {
@@ -94,13 +96,17 @@ const phonesSlice = createSlice({
         state.entities.sort((a, b) => b[key] - a[key]);
       }
     },
-    phonesSearchName: (state, actions: IActionsFilter) => {
-      if (!actions.payload.name.length) {
-        state.entities = initialState.entities;
+    phonesSearchName: (state, actions) => {
+      console.log(!actions.payload);
+      if (!actions.payload) {
+        console.log("тут1", actions.payload);
+        state.entities = state.initialStatePhones;
+      } else {
+        console.log("тут2", actions.payload);
+        state.entities = state.initialStatePhones.filter((phone) =>
+          (phone.brand.toLowerCase() + phone.name.toLowerCase()).match(`${actions.payload.toLowerCase()}`)
+        );
       }
-      state.entities = initialState.entities.filter((phone) =>
-        (phone.brand.toLowerCase() + phone.name.toLowerCase()).match(`${actions.payload.name.toLowerCase()}`)
-      );
     },
     filterPhonesReset: (state) => {
       state.entities = initialState.entities;

@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
-import { cartIncreaseCountItem, cartDecreaseCountItem, cartRemovePhone, getCartItems } from "../../store/cart";
+import {
+  cartIncreaseCountItem,
+  cartDecreaseCountItem,
+  cartRemovePhone,
+  getCartItems,
+  cartClear,
+} from "../../store/cart";
+import { getCurrentUser } from "../../store/user";
+import { createOrder } from "../../store/orders";
 
 function Cart() {
   const dispath = useDispatch();
   const cartItems = useSelector(getCartItems());
   const [isOpen, setOpen] = useState(true);
+  const currentUser = useSelector(getCurrentUser());
 
   const handleRemoveItems = (id: string) => {
     // @ts-ignore
@@ -14,7 +23,17 @@ function Cart() {
   };
 
   const handleMakeOrder = () => {
-    console.log(cartItems);
+    const data = {
+      orderId: nanoid(5),
+      dateOrder: new Date().toLocaleDateString(),
+      itemsOrder: cartItems,
+      userId: currentUser._id,
+      confirm: false,
+    };
+    // @ts-ignore
+    dispath(createOrder(data));
+    // @ts-ignore
+    dispath(cartClear());
   };
 
   const handleDecrimentCount = (id) => {
@@ -60,7 +79,7 @@ function Cart() {
         <ul className="flex flex-col divide-y divide-gray-700">
           {cartItems.map((phone) => {
             return (
-              <li id={phone._id} key={nanoid()} className="flex flex-col py-1 sm:flex-row sm:justify-between p-2">
+              <li id={phone._id} key={phone._id} className="flex flex-col py-1 sm:flex-row sm:justify-between p-2">
                 <div className="flex w-full space-x-2 sm:space-x-4">
                   <img
                     className="flex-shrink-0 object-contain dark:border-transparent rounded outline-none sm:w-26 sm:h-16 dark:bg-gray-500"

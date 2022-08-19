@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.label-search {
+  @apply sr-only;
+}
+
+.container-search {
+  @apply relative w-full mb-3;
+}
+
+.flex-container-search {
+  @apply flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none;
+}
+
+.svg-search {
+  @apply w-5 h-5 text-orange-500 dark:text-orange-400;
+}
+
+.input-style {
+  @apply bg-white border border-gray-300 text-orange-500 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full pl-10 p-2.5  dark:bg-white dark:border-white  dark:text-orange-500 dark:focus:ring-orange-500 dark:focus:border-orange-500 outline-orange-500;
+}
+
+.btn-search-clear {
+  @apply flex absolute inset-y-0 right-0 items-center pr-3;
+}
+
+.svg-search-clear {
+  @apply text-orange-500;
+}

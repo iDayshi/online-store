@@ -1,9 +1,10 @@
 import React from "react";
 import CheckBoxField from "../../common/form/checkBoxField";
-import SearchForm from "../../common/form/search";
+import SearchForm from "../../common/form/searchForm/search";
 import SelectField from "../../common/form/selectField";
 import { useDispatch } from "react-redux";
 import { phonesFilterReset } from "../../../store/phones";
+import "./sideBar.styles.css";
 
 function SideBar() {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ function SideBar() {
 
   return (
     <aside className="w-64 h-screen-100" aria-label="Sidebar">
-      <div className="sidebar_container ">
+      <div className="sidebar-container ">
         <ul>
           <li>
             <SearchForm />
@@ -26,7 +27,7 @@ function SideBar() {
             <SelectField />
           </li>
           <div className="flex">
-            <button onClick={handleResetFilter} type="button" className="sidebar_btn">
+            <button onClick={handleResetFilter} type="button" className="sidebar-btn">
               Reset Filter
             </button>
           </div>

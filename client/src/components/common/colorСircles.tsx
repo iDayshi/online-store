@@ -11,7 +11,7 @@ function СolorСircles({ colors }: { colors: Array<IColors> }) {
         return (
           <span
             key={nanoid()}
-            className={"border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none mr-1 " + colorInfo.color}
+            className={`border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none mr-1 ${colorInfo.color} `}
           ></span>
         );
       })}

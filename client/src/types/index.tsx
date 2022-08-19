@@ -72,6 +72,7 @@ export interface IFilter {
 
 export interface IInitialStatePhones {
   entities: Array<IPhone>;
+  initialStatePhones: Array<IPhone>;
   filterConfig: IFilter;
   isFiltered: boolean;
   isLoading: boolean;

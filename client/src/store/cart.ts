@@ -36,11 +36,14 @@ const cartSlice = createSlice({
     phonesRemoveCart: (state, action) => {
       state.cartStore = state.cartStore.filter((p) => p._id !== action.payload);
     },
+    phonesClearCart: (state) => {
+      state.cartStore = [];
+    },
   },
 });
 
 const { reducer: cartReducer, actions } = cartSlice;
-const { phonesAddCart, phonesRemoveCart, phonesIncreaseItemCart, phonesDecreaseItemCart } = actions;
+const { phonesAddCart, phonesRemoveCart, phonesIncreaseItemCart, phonesDecreaseItemCart, phonesClearCart } = actions;
 
 export const cartAddPhone = (payload) => async (dispatch) => {
   dispatch(phonesAddCart(payload));
@@ -56,6 +59,10 @@ export const cartDecreaseCountItem = (payload) => async (dispatch) => {
 
 export const cartRemovePhone = (payload: string) => (dispatch: (arg0: { payload: IPhone; type: string }) => void) => {
   dispatch(phonesRemoveCart(payload));
+};
+
+export const cartClear = () => async (dispatch) => {
+  dispatch(phonesClearCart());
 };
 
 export const getCartItems = () => (state: IStoreState) => state.cart.cartStore;

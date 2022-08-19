@@ -1,32 +1,37 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { getUserById } from "../../store/user";
+import { useDispatch, useSelector } from "react-redux";
+import { getOrders, orderDelete } from "../../store/orders";
 
-const OrderList = (allOrders) => {
-  const { orders } = allOrders;
+const OrderList = () => {
+  const dispath = useDispatch();
+  const orders = useSelector(getOrders());
+
+  const handleRemoveOrder = (id) => {
+    // @ts-ignore
+    dispath(orderDelete(id));
+  };
 
   return (
     <>
-      <div className="mt-1 mb-4 flex items-center justify-between">
+      <div className="mt-1 mb-4 flex items-center justify-between  ">
         <span className="text-sm">
           Orders:
           <strong> {orders.length}</strong>
         </span>
       </div>
-      {orders.map((o) => {
-        const user = useSelector(getUserById(o.userId));
+      {orders.map((order) => {
         return (
-          <div key={o._id} className="flex flex-col mt-2">
+          <div key={order._id} className="flex flex-col mt-2">
             <div className="flex flex-row mt-2">
               <div
                 className="flex w-full items-center justify-between bg-white
-						dark:bg-gray-800 px-8 py-6 "
+						dark:bg-gray-800 px-8 py-6 border-4 border-red-600 "
               >
                 <div className="flex">
-                  <img className="h-12 w-12 rounded-full object-cover" src={user.image} alt="infamous" />
+                  <img className="h-12 w-12 rounded-full object-cover" src={order.userId.image} alt="infamous" />
 
                   <div className="flex flex-col ml-6">
-                    <span className="text-lg font-bold">{o.orderId}</span>
+                    <span className="text-lg font-bold">Order number: {order.orderId}</span>
                     <div className="mt-4 flex">
                       <div className="flex">
                         <svg
@@ -45,7 +50,7 @@ const OrderList = (allOrders) => {
                           className="ml-2 text-sm text-gray-600
 											dark:text-gray-300 capitalize"
                         >
-                          {user.name}
+                          {order.userId.name}
                         </span>
                       </div>
 
@@ -67,43 +72,7 @@ const OrderList = (allOrders) => {
                           className="ml-2 text-sm text-gray-600
 											dark:text-gray-300 capitalize"
                         >
-                          Date Zakaza
-                        </span>
-                      </div>
-
-                      <div className="flex ml-6">
-                        <svg
-                          className="h-5 w-5 fill-current
-											dark:text-gray-300"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M13 2.05v2.02c3.95.49 7 3.85 7
-												7.93 0 3.21-1.92 6-4.72 7.28L13
-												17v5h5l-1.22-1.22C19.91 19.07 22
-												15.76 22
-												12c0-5.18-3.95-9.45-9-9.95M11
-												2c-1.95.2-3.8.96-5.32 2.21L7.1
-												5.63A8.195 8.195 0 0111 4V2M4.2
-												5.68C2.96 7.2 2.2 9.05 2
-												11h2c.19-1.42.75-2.77
-												1.63-3.9L4.2 5.68M6
-												8v2h3v1H8c-1.1 0-2 .9-2
-												2v3h5v-2H8v-1h1c1.11 0 2-.89
-												2-2v-1a2 2 0 00-2-2H6m6
-												0v5h3v3h2v-3h1v-2h-1V8h-2v3h-1V8h-2M2
-												13c.2 1.95.97 3.8 2.22
-												5.32l1.42-1.42A8.21 8.21 0 014
-												13H2m5.11 5.37l-1.43 1.42A10.04
-												10.04 0 0011 22v-2a8.063 8.063 0
-												01-3.89-1.63z"
-                          ></path>
-                        </svg>
-                        <span
-                          className="ml-2 text-sm text-gray-600
-											dark:text-gray-300 capitalize"
-                        >
-                          Остаток
+                          Order date: {order.dateOrder}
                         </span>
                       </div>
                     </div>
@@ -112,12 +81,24 @@ const OrderList = (allOrders) => {
                       <button
                         className="flex items-center
 										focus:outline-none border rounded-full
-										py-2 px-6 leading-none border-gray-500
-										dark:border-gray-600 select-none
-										hover:bg-orange-400 hover:text-white
+										py-2 px-6 leading-none border-green-500
+										dark:border-green-600 select-none
+										hover:bg-green-600 hover:text-white
 										dark-hover:text-gray-200"
                       >
                         <span>Confirm</span>
+                      </button>
+
+                      <button
+                        onClick={() => handleRemoveOrder(order._id)}
+                        className="flex items-center ml-4
+										focus:outline-none border rounded-full
+										py-2 px-6 leading-none border-red-500
+										dark:border-red-600 select-none
+										hover:bg-red-600 hover:text-white
+										dark-hover:text-gray-200"
+                      >
+                        <span>Remove Order</span>
                       </button>
 
                       <button
@@ -161,28 +142,22 @@ const OrderList = (allOrders) => {
                   <div className="flex">
                     <div className="flex flex-col py-1 sm:flex-row sm:justify-between p-2">
                       <div className="flex w-full space-x-2 sm:space-x-4">
-                        <img
-                          className="flex-shrink-0 object-contain dark:border-transparent rounded outline-none sm:w-26 sm:h-16 dark:bg-gray-500"
-                          src={`/phoneImage/aaa.jpg`}
-                          alt="aaa"
-                        />
-                        <div className="flex flex-col justify-between w-full pb-4">
-                          <div className="flex justify-between w-full pb-2 space-x-2">
-                            <div className="space-y-1">
-                              <h3 className="text-lg font-semibold leading-snug sm:pr-8">3333</h3>
-                              <p className="text-sm dark:text-gray-400">2222</p>
-                            </div>
-                            <div className="text-right">
-                              <p className="text-lg font-semibold">11$</p>
-                            </div>
-                          </div>
-                          <div className="flex text-sm divide-x">
-                            <div className="inline-flex items-center mt-2">
-                              <div className="  text-gray-600 hover:bg-gray-100 inline-flex items-center px-4 py-1 select-none">
-                                count 1
+                        <div className="flex flex-col justify-between w-full pl-6">
+                          {order.itemsOrder.map((i) => {
+                            return (
+                              <div key={i._id} className="flex justify-between w-full pb-2 space-x-2">
+                                <div className="space-y-1">
+                                  <h3 className="text-lg font-semibold leading-snug sm:pr-8">
+                                    {i.brand + " " + i.name}
+                                  </h3>
+                                  <p className="text-sm dark:text-white">Count: {i.count}</p>
+                                </div>
+                                <div className="text-right">
+                                  <p className="text-lg text-red-500 font-semibold">{i.price}$</p>
+                                </div>
                               </div>
-                            </div>
-                          </div>
+                            );
+                          })}
                         </div>
                       </div>
                     </div>
@@ -191,22 +166,28 @@ const OrderList = (allOrders) => {
 
                 <div className="flex flex-col -mt-10 mr-20">
                   <span
-                    className="font-semibold text-green-500
+                    className="text-center text-2xl font-semibold text-green-500
 								dark:text-green-300"
                   >
                     Total
                   </span>
                   <span
-                    className="font-semibold text-green-500
+                    className=" text-center text-xl font-semibold text-green-500
 								dark:text-green-300"
                   >
-                    200 $
+                    {order.itemsOrder.reduce((acc, i) => {
+                      return acc + i.price * i.count;
+                    }, 0)}
+                    $
                   </span>
                   <span
-                    className="text-sm text-gray-700 dark:text-gray-400
+                    className="text-lg text-green-700 dark:text-green-400
 								mt-2"
                   >
-                    Count 2
+                    Total count:{" "}
+                    {order.itemsOrder.reduce((acc, i) => {
+                      return acc + i.count;
+                    }, 0)}
                   </span>
                 </div>
               </div>

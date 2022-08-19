@@ -70,7 +70,7 @@ export const createOrder = (payload) => async (dispatch) => {
   }
 };
 
-export const deleteOrder = (id) => async (dispatch) => {
+export const orderDelete = (id) => async (dispatch) => {
   dispatch(removeOrderRequested());
   try {
     const { content } = await orderService.removeOrder(id);

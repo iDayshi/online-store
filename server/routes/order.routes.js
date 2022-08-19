@@ -8,7 +8,7 @@ router
   .route('/')
   .get(auth, async (req, res) => {
     try {
-      const list = await Order.find()
+      const list = await Order.find().populate("userId")
       res.send(list)
     } catch (err) {
       console.log(err.message)
@@ -34,9 +34,10 @@ router
 router.delete('/:OrderId', auth, async (req, res) => {
   try {
     const {orderId} = req.params
+    console.log(orderId)
     const removedOrder = await Order.findById(orderId)
 
-    if (removedOrder.userId.toString() === req.user._id) {
+    if (req.user._id) {
       await removedOrder.remove()
       return res.send(null)
     } else {
