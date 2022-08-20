@@ -57,9 +57,9 @@ const LoginForm = () => {
     e.preventDefault();
     const isValid = validate();
     if (!isValid) return;
-
+    history("/");
     // @ts-ignore
-    dispatch(login({ payload: data }, () => history("/")));
+    dispatch(login({ payload: data }));
   };
 
   return (

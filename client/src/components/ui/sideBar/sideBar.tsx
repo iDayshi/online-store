@@ -4,7 +4,6 @@ import SearchForm from "../../common/form/searchForm/search";
 import SelectField from "../../common/form/selectField";
 import { useDispatch } from "react-redux";
 import { phonesFilterReset } from "../../../store/phones";
-import "./sideBar.styles.css";
 
 function SideBar() {
   const dispatch = useDispatch();
@@ -18,7 +17,7 @@ function SideBar() {
 
   return (
     <aside className="w-64 h-screen-100" aria-label="Sidebar">
-      <div className="sidebar-container ">
+      <div className="overflow-y-auto py-4 px-3 h-full bg-gray-50 rounded ">
         <ul>
           <li>
             <SearchForm />
@@ -27,7 +26,11 @@ function SideBar() {
             <SelectField />
           </li>
           <div className="flex">
-            <button onClick={handleResetFilter} type="button" className="sidebar-btn">
+            <button
+              onClick={handleResetFilter}
+              type="button"
+              className="text-orange-400 hover:text-white border border-orange-400 hover:bg-orange-500  font-medium rounded-lg text-sm px-4 py-2.5 text-center mr-2 mb-2 dark:border-orange-500 dark:text-orange-500 dark:hover:text-white dark:hover:bg-orange-400 active:scale-105"
+            >
               Reset Filter
             </button>
           </div>

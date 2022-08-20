@@ -3,9 +3,11 @@ import { validator } from "../../utils/validator";
 import TextField from "../common/form/textField";
 import { useDispatch } from "react-redux";
 import { signUp } from "../../store/user";
+import { useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
+  const history = useNavigate();
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -66,6 +68,7 @@ const RegisterForm = () => {
     e.preventDefault();
     const isValid = validate();
     if (!isValid) return;
+    history("/");
     dispatch(signUp(data));
   };
 

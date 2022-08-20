@@ -132,21 +132,9 @@ export const loadingUser = () => async (dispatch) => {
   }
 };
 
-// export const getCurrentUserData = () => (state) => {
-//   if (state.users.entities) {
-//     return state.users.entities.find((u) => u._id === state.users.auth.userId);
-//   }
-//   return null;
-// };
-
-export const getUserById = (userId) => (state) => {
-  if (state.users.adminInfo) {
-    return state.users.adminInfo.find((u) => u._id === userId);
-  }
-};
-
 export const getIsLoggedIn = () => (state) => state.users.isLoggedIn;
 export const getCurrentUser = () => (state) => state.users.entities;
 export const getAuthErrors = () => (state) => state.users.error;
+export const getUsersLoadingStatus = () => (state) => state.users.isLoading;
 
 export default usersReducer;

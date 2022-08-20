@@ -97,12 +97,9 @@ const phonesSlice = createSlice({
       }
     },
     phonesSearchName: (state, actions) => {
-      console.log(!actions.payload);
       if (!actions.payload) {
-        console.log("тут1", actions.payload);
         state.entities = state.initialStatePhones;
       } else {
-        console.log("тут2", actions.payload);
         state.entities = state.initialStatePhones.filter((phone) =>
           (phone.brand.toLowerCase() + phone.name.toLowerCase()).match(`${actions.payload.toLowerCase()}`)
         );

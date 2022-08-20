@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getCurrentUser, logOut } from "../../store/user";
 
 const NavProfole = () => {
   const [isOpen, setOpen] = useState(true);
   const currentUser = useSelector(getCurrentUser());
   const dispatch = useDispatch();
+  const history = useNavigate();
 
   const handleLogOut = () => {
+    history("/");
     // @ts-ignore
     dispatch(logOut());
   };
@@ -24,7 +26,6 @@ const NavProfole = () => {
             aria-expanded="false"
             data-dropdown-toggle="user-dropdown"
             data-dropdown-placement="bottom"
-            // onBlur={() => setOpen(!isOpen)}
             onClick={() => setOpen(!isOpen)}
           >
             <span className="sr-only">Open user menu</span>
@@ -46,8 +47,8 @@ const NavProfole = () => {
                 {currentUser.email}
               </span>
             </div>
-            <ul className="py-1" aria-labelledby="user-menu-button">
-              <Link to={"account"}>
+            <ul onClick={() => setOpen(!isOpen)} className="py-1" aria-labelledby="user-menu-button">
+              <Link to={"order"}>
                 <li>
                   <p className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                     {currentUser.isAdmin ? "Admin" : "Orders"}

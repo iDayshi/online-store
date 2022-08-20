@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import MyAccount from "./components/ui/orderBoard";
+import OrderBoard from "./components/ui/orderBoard";
 import Footer from "./components/ui/footer";
 import Navigation from "./components/ui/navBar";
 import LoginPage from "./layots/login";
@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/account" element={<MyAccount />} />
+        <Route path="/order" element={<OrderBoard />} />
         <Route path="/product/:id" element={<ProductPage />} />
       </Routes>
       <Footer />

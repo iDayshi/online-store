@@ -26,19 +26,25 @@ const ordersSlice = createSlice({
       }
       state.entities.push(actions.payload);
     },
-    removeOrder: (state, actions) => {
+    orderRemove: (state, actions) => {
       state.entities = state.entities.filter((o) => o._id !== actions.payload);
+    },
+    orderUpdateSuccessed: (state, actions) => {
+      state.entities[state.entities.findIndex((u) => u._id === actions.payload._id)] = actions.payload;
     },
   },
 });
 
 const { reducer: ordersReducer, actions } = ordersSlice;
-const { ordersRequested, ordersReceved, ordersRequestFieled, ordersCreated, removeOrder } = actions;
+const { ordersRequested, ordersReceved, ordersRequestFieled, ordersCreated, orderRemove, orderUpdateSuccessed } =
+  actions;
 
-const ordersCreateRequested = createAction("orders/ordersCreateRequested");
+const createOrdersRequested = createAction("orders/ordersCreateRequested");
 const createOrdersFailed = createAction("orders/createOrdersFailed");
 const removeOrderRequested = createAction("orders/removeOrderRequested");
 const removeOrderFailed = createAction("orders/removeOrderFailed");
+const updateOrderRequested = createAction("orders/orderUpdateRequested");
+const updateOrderFailed = createAction("order/userUpdateFailed");
 
 export const loadingOrdersListUser = (userId) => async (dispatch) => {
   dispatch(ordersRequested());
@@ -61,7 +67,7 @@ export const loadingAllOrdersList = () => async (dispatch) => {
 };
 
 export const createOrder = (payload) => async (dispatch) => {
-  dispatch(ordersCreateRequested());
+  dispatch(createOrdersRequested());
   try {
     const { content } = await orderService.createOrder(payload);
     dispatch(ordersCreated(content));
@@ -70,12 +76,22 @@ export const createOrder = (payload) => async (dispatch) => {
   }
 };
 
-export const orderDelete = (id) => async (dispatch) => {
+export const updateOrder = (payload) => async (dispatch) => {
+  dispatch(updateOrderRequested());
+  try {
+    const { content } = await orderService.updateOrder(payload);
+    dispatch(orderUpdateSuccessed(content));
+  } catch (error) {
+    dispatch(updateOrderFailed());
+  }
+};
+
+export const deleteOrder = (id) => async (dispatch) => {
   dispatch(removeOrderRequested());
   try {
     const { content } = await orderService.removeOrder(id);
     if (!content) {
-      dispatch(removeOrder(id));
+      dispatch(orderRemove(id));
     }
   } catch (error) {
     dispatch(removeOrderFailed());

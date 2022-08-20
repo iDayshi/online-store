@@ -1,5 +1,4 @@
 import httpServise from "./http.services";
-import localStorageService from "./localStorage.service";
 
 const orderEndpoint = "order/";
 
@@ -8,11 +7,10 @@ const orderService = {
     const { data } = await httpServise.post(orderEndpoint, payload);
     return data;
   },
-  getOrdersUser: async (pageId) => {
+  getOrdersUser: async (userId: string) => {
     const { data } = await httpServise.get(orderEndpoint, {
       params: {
-        orderBy: "pageId",
-        equalTo: `${pageId}`,
+        equalTo: `${userId}`,
       },
     });
     return data;
@@ -21,12 +19,12 @@ const orderService = {
     const { data } = await httpServise.get(orderEndpoint);
     return data;
   },
-  removeOrder: async (orederId) => {
+  removeOrder: async (orederId: string) => {
     const { data } = await httpServise.delete(orderEndpoint + orederId);
     return data;
   },
-  updateOrder: async (payload) => {
-    const { data } = await httpServise.patch(orderEndpoint + localStorageService.getUserId(), payload);
+  updateOrder: async (orederId: string) => {
+    const { data } = await httpServise.patch(orderEndpoint + orederId);
     return data;
   },
 };

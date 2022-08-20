@@ -1,14 +1,20 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getOrders, orderDelete } from "../../store/orders";
+import { getOrders, deleteOrder, updateOrder } from "../../store/orders";
 
-const OrderList = () => {
+const OrderList = (administrator: { isAdmin: string }) => {
+  const { isAdmin } = administrator;
   const dispath = useDispatch();
   const orders = useSelector(getOrders());
 
+  const handleConfirmOrder = (id) => {
+    // @ts-ignore
+    dispath(updateOrder(id));
+  };
+
   const handleRemoveOrder = (id) => {
     // @ts-ignore
-    dispath(orderDelete(id));
+    dispath(deleteOrder(id));
   };
 
   return (
@@ -24,8 +30,8 @@ const OrderList = () => {
           <div key={order._id} className="flex flex-col mt-2">
             <div className="flex flex-row mt-2">
               <div
-                className="flex w-full items-center justify-between bg-white
-						dark:bg-gray-800 px-8 py-6 border-4 border-red-600 "
+                className={`flex w-full items-center justify-between bg-white
+						dark:bg-gray-800 px-8 py-6 border-4 ${order.confirm ? "border-green-600" : "border-red-600"} `}
               >
                 <div className="flex">
                   <img className="h-12 w-12 rounded-full object-cover" src={order.userId.image} alt="infamous" />
@@ -75,19 +81,32 @@ const OrderList = () => {
                           Order date: {order.dateOrder}
                         </span>
                       </div>
+                      <div className="flex ml-6">
+                        <span
+                          className={`ml-2 text-sm 
+											 capitalize ${order.confirm ? "text-green-600" : "text-red-600"}`}
+                        >
+                          Confirm: {order.confirm.toString()}
+                        </span>
+                      </div>
                     </div>
 
                     <div className="mt-4 flex">
-                      <button
-                        className="flex items-center
+                      {isAdmin ? (
+                        <button
+                          onClick={() => handleConfirmOrder(order._id)}
+                          className="flex items-center
 										focus:outline-none border rounded-full
 										py-2 px-6 leading-none border-green-500
 										dark:border-green-600 select-none
 										hover:bg-green-600 hover:text-white
 										dark-hover:text-gray-200"
-                      >
-                        <span>Confirm</span>
-                      </button>
+                        >
+                          <span>Confirm</span>
+                        </button>
+                      ) : (
+                        ""
+                      )}
 
                       <button
                         onClick={() => handleRemoveOrder(order._id)}
