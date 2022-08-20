@@ -31,10 +31,9 @@ router
     }
   })
 
-router.delete('/:OrderId', auth, async (req, res) => {
+router.delete('/:orderId', auth, async (req, res) => {
   try {
     const {orderId} = req.params
-    console.log(orderId)
     const removedOrder = await Order.findById(orderId)
 
     if (req.user._id) {
