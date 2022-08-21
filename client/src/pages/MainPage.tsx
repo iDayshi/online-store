@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import SideBar from "../components/ui/sideBar/sideBar";
+import SideBar from "../components/ui/sideBar";
 import PhoneCard from "../components/ui/phoneCard";
 import { getPhonesLoadingStatus, loadingPhonesList } from "../store/phones";
 import { useDispatch, useSelector } from "react-redux";

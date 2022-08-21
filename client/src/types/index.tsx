@@ -10,6 +10,12 @@ type Info = {
   value: string;
 };
 
+export interface IErrors {
+  name?: string;
+  email?: string;
+  password?: string;
+}
+
 export interface ISortOptions {
   value?: string;
   name?: SortKeys;

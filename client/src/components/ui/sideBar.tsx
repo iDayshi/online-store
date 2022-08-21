@@ -1,16 +1,16 @@
 import React from "react";
-import CheckBoxField from "../../common/form/checkBoxField";
-import SearchForm from "../../common/form/searchForm/search";
-import SelectField from "../../common/form/selectField";
+import CheckBoxField from "../common/form/checkBoxField";
+import SearchForm from "../common/form/searchForm/search";
+import SelectField from "../common/form/selectField";
 import { useDispatch } from "react-redux";
-import { phonesFilterReset } from "../../../store/phones";
+import { phonesFilterReset } from "../../store/phones";
 
 function SideBar() {
   const dispatch = useDispatch();
 
   const handleResetFilter = () => {
-    // const box = document.querySelectorAll<HTMLInputElement>("input[type=checkbox]");
-    // box.forEach((el) => (el.checked = false));
+    const box = document.querySelectorAll<HTMLInputElement>("input[type=checkbox]");
+    box.forEach((el) => (el.checked = false));
     // @ts-ignore
     dispatch(phonesFilterReset());
   };

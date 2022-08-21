@@ -6,6 +6,7 @@ import { sortedPhones } from "../../../store/phones";
 const SelectField = () => {
   const dispatch = useDispatch();
   const handleChange = ({ target }) => {
+    // @ts-ignore
     dispatch(sortedPhones({ name: target.value.split(".")[0], value: target.value.split(".")[1] }));
   };
 
@@ -25,8 +26,6 @@ const SelectField = () => {
         </option>
         <option value="price.low">Price: Low to High</option>
         <option value="price.high">Price: High to Low</option>
-        <option value="date.low">Release: Low to High</option>
-        <option value="date.high">Release: High to Low</option>
         <option value="name.low">Name: A - Z</option>
         <option value="name.high">Name: Z - A</option>
       </select>

@@ -4,6 +4,7 @@ import TextField from "../common/form/textField";
 import { useDispatch } from "react-redux";
 import { signUp } from "../../store/user";
 import { useNavigate } from "react-router-dom";
+import { IErrors } from "../../types";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -14,9 +15,9 @@ const RegisterForm = () => {
     name: "",
   });
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<IErrors>({});
 
-  const handleChange = (target) => {
+  const handleChange = (target: { name: string; value: string }) => {
     setData((PrevState) => ({
       ...PrevState,
       [target.name]: target.value,
@@ -64,11 +65,12 @@ const RegisterForm = () => {
 
   const isValid = Object.keys(errors).length === 0;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     const isValid = validate();
     if (!isValid) return;
     history("/");
+    // @ts-ignore
     dispatch(signUp(data));
   };
 

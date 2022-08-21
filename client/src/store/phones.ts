@@ -55,9 +55,11 @@ const phonesSlice = createSlice({
       if (countParamFilters) {
         for (let n = 0; n < nameFilter.length; n++) {
           const element = nameFilter[n];
+          console.log(element);
           if (element.length) {
             for (let i = 0; i < state.filterConfig[element as keyof IFilter].length; i++) {
               const filterName = state.filterConfig[element as keyof IFilter][i];
+
               if (n > 0 && arr.length) {
                 arr.forEach((p) => {
                   if (filterName === p[element as keyof IFilter]) {
@@ -65,7 +67,7 @@ const phonesSlice = createSlice({
                   }
                 });
               } else {
-                initialState.entities.forEach((p) => {
+                state.initialStatePhones.map((p) => {
                   if (filterName === p[element as keyof IFilter]) {
                     arr.push(p);
                   }
@@ -80,7 +82,7 @@ const phonesSlice = createSlice({
         }
         state.entities = arr;
       } else {
-        state.entities = initialState.entities;
+        state.entities = state.initialStatePhones;
       }
     },
     phonesSorted: (state, actions: IActionsFilter) => {
@@ -106,7 +108,7 @@ const phonesSlice = createSlice({
       }
     },
     filterPhonesReset: (state) => {
-      state.entities = initialState.entities;
+      state.entities = state.initialStatePhones;
       state.filterConfig = {
         brand: [],
         typeDisplay: [],

@@ -6,15 +6,19 @@ import { cartAddPhone, getCartItems } from "../store/cart";
 import { getPhonesById, getPhonesLoadingStatus } from "../store/phones";
 import { IPhone } from "../types";
 import { toast } from "react-toastify";
+import { getCurrentUser } from "../store/user";
 
-function ProductPage() {
+const ProductPage = () => {
   const { id } = useParams();
-  const isLoading = useSelector(getPhonesLoadingStatus());
+  let isLoading = useSelector(getPhonesLoadingStatus());
+  const isUser = useSelector(getCurrentUser());
   const cartLength = useSelector(getCartItems()).length;
 
   const dispatch = useDispatch();
 
-  useEffect(() => {}, [isLoading]);
+  useEffect(() => {
+    isLoading = false;
+  }, [isLoading]);
 
   function correctData(phone: IPhone) {
     return {
@@ -28,17 +32,20 @@ function ProductPage() {
   }
 
   const handleAddToCart = (item: IPhone) => {
-    if (cartLength < 3) {
-      const newData = correctData(item);
-      // @ts-ignore
-      dispatch(cartAddPhone(newData));
-    } else {
-      toast.error("Максимум 3 позиции в заказе", { position: "top-center", autoClose: 2000 });
+    if (isUser) {
+      if (cartLength < 3) {
+        const newData = correctData(item);
+        // @ts-ignore
+        dispatch(cartAddPhone(newData));
+      } else {
+        toast.error("Максимум 3 позиции в заказе", { position: "top-center", autoClose: 2000 });
+      }
     }
+    toast("Ввойдите в аккаунт");
   };
 
   if (isLoading) {
-    <p>Загрузка</p>;
+    return <p>Загрузка...</p>;
   } else {
     const currentPhone = useSelector(getPhonesById(id));
     return (
@@ -83,6 +90,6 @@ function ProductPage() {
       </>
     );
   }
-}
+};
 
 export default ProductPage;
