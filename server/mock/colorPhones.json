@@ -1,0 +1,42 @@
+[
+  {
+    "colorId": "67rdca3eeb7f6fgeed4711031",
+    "name": "black",
+    "color": "bg-black"
+  },
+  {
+    "colorId": "67rdca3eeb7f6fgeed4711002",
+    "name": "white",
+    "color": "bg-white"
+  },
+  {
+    "colorId": "67rdca3eeb7f6fgeed47110123",
+    "name": "silver",
+    "color": "bg-zinc-600"
+  },
+  {
+    "colorId": "67rdca3eeb7f6fgeed4711014",
+    "name": "red",
+    "color": "bg-red-600"
+  },
+  {
+    "colorId": "67rdca3eeb7f6fgeed4711025",
+    "name": "pink",
+    "color": "bg-rose-400"
+  },
+  {
+    "colorId": "67rdca3eeb7f6fgeed4711036",
+    "name": "brown",
+    "color": "bg-amber-800"
+  },
+  {
+    "colorId": "67rdca3eeb7f6fgeed4711037",
+    "name": "blue",
+    "color": "bg-blue-800"
+  },
+  {
+    "colorId": "67rdca3eeb7f6fgeed4711038",
+    "name": "orange",
+    "color": "bg-amber-800"
+  }
+]
