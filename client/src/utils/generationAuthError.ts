@@ -1,4 +1,4 @@
-export function generationAuthError(message) {
+export function generationAuthError(message: string) {
   switch (message) {
     case "INVALID_PASSWORD" && "EMAIL_NOT_FOUND":
       return "Введён неверный Email или Password";

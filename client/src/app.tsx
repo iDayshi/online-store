@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <div className="flex flex-col h-screen">
+    <>
       <ToastContainer />
       <Navigation />
       <Routes>
@@ -23,7 +23,7 @@ function App() {
         <Route path="/product/:id" element={<ProductPage />} />
       </Routes>
       <Footer />
-    </div>
+    </>
   );
 }
 

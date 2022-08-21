@@ -104,7 +104,7 @@ const RegisterForm = () => {
       <button
         type="submit"
         disabled={!isValid}
-        className="px-4 py-3 bg-green-500 text-white rounded hover:bg-green-700 focus:outline-none focus:shadow-outline block w-full"
+        className="px-4 py-3 bg-green-500 text-white rounded hover:bg-green-700 focus:outline-none focus:shadow-outline block w-full transform active:scale-95 transition-transform"
       >
         Create Account
       </button>

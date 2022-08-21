@@ -32,9 +32,6 @@ export interface ITarget {
   target: IOptions;
 }
 
-export interface IInfoPhones {
-  info: string;
-}
 export interface IActionsFilter {
   type: string;
   payload: ISortOptions;
@@ -93,5 +90,3 @@ export interface IStoreState {
   phones: IInitialStatePhones;
   cart: IInitialStateCart;
 }
-
-export interface IDataLogin {}

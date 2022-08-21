@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import { IActionsFilter, IFilter, IInitialStatePhones, IOptions, IPhone, IStoreState } from "../types/index";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import phonesService from "../service/phone.service";
@@ -48,39 +47,27 @@ const phonesSlice = createSlice({
       const countParamFilters = nameFilter.reduce((acc, curr) => {
         return acc + state.filterConfig[curr as keyof IFilter].length;
       }, 0);
-
-      let arr: Array<IPhone> = [];
-      const arrState: Array<IPhone> = [];
+      state.entities = state.initialStatePhones;
 
       if (countParamFilters) {
         for (let n = 0; n < nameFilter.length; n++) {
           const element = nameFilter[n];
-          console.log(element);
-          if (element.length) {
+          const arrState: Array<IPhone> = [];
+
+          if (state.filterConfig[element as keyof IFilter].length) {
             for (let i = 0; i < state.filterConfig[element as keyof IFilter].length; i++) {
               const filterName = state.filterConfig[element as keyof IFilter][i];
-
-              if (n > 0 && arr.length) {
-                arr.forEach((p) => {
-                  if (filterName === p[element as keyof IFilter]) {
-                    arrState.push(p);
-                  }
-                });
-              } else {
-                state.initialStatePhones.map((p) => {
-                  if (filterName === p[element as keyof IFilter]) {
-                    arr.push(p);
-                  }
-                });
-              }
+              state.entities.forEach((p) => {
+                if (filterName === p[element as keyof IFilter]) {
+                  arrState.push(p);
+                }
+              });
             }
           }
           if (arrState.length) {
-            arr = [...arrState];
-            arrState.length = 0;
+            state.entities = [...arrState];
           }
         }
-        state.entities = arr;
       } else {
         state.entities = state.initialStatePhones;
       }

@@ -17,14 +17,14 @@ const LoginPage = () => {
             <>
               <div className="mb-6 text-center">
                 <h3 className="text-3xl inline-flex items-center">
-                  <svg className="w-6 h-6 inline-block text-indigo-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 inline-block text-orange-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
                       clipRule="evenodd"
                       fillRule="evenodd"
                     ></path>
                   </svg>
-                  Web Application
+                  Old Store Phones
                 </h3>
                 <p className="text-gray-600">Create your own account in one single step</p>
               </div>
@@ -43,14 +43,14 @@ const LoginPage = () => {
             <>
               <div className="mb-6 text-center">
                 <h3 className="text-3xl inline-flex items-center">
-                  <svg className="w-6 h-6 inline-block text-indigo-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 inline-block text-orange-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
                       clipRule="evenodd"
                       fillRule="evenodd"
                     ></path>
                   </svg>
-                  Web Application
+                  Old Store Phones
                 </h3>
                 <p className="text-gray-600">Welcome, please log in to your dashboard</p>
               </div>

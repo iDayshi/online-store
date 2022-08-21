@@ -5,7 +5,7 @@ import { sortedPhones } from "../../../store/phones";
 
 const SelectField = () => {
   const dispatch = useDispatch();
-  const handleChange = ({ target }) => {
+  const handleChange = ({ target }: { target: { name: string; value: string } }) => {
     // @ts-ignore
     dispatch(sortedPhones({ name: target.value.split(".")[0], value: target.value.split(".")[1] }));
   };

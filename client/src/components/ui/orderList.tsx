@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getOrders, deleteOrder, updateOrder } from "../../store/orders";
+import { toast } from "react-toastify";
 
 const OrderList = (administrator: { isAdmin: string }) => {
   const { isAdmin } = administrator;
@@ -15,6 +16,11 @@ const OrderList = (administrator: { isAdmin: string }) => {
   const handleRemoveOrder = (id) => {
     // @ts-ignore
     dispath(deleteOrder(id));
+  };
+
+  const handleEditOrder = (id) => {
+    // @ts-ignore
+    toast.success("Дананя функуия находиться в разработке");
   };
 
   return (
@@ -121,6 +127,7 @@ const OrderList = (administrator: { isAdmin: string }) => {
                       </button>
 
                       <button
+                        onClick={handleEditOrder}
                         className="flex items-center ml-4
 										focus:outline-none border rounded-full
 										py-2 px-6 leading-none border-orange-500

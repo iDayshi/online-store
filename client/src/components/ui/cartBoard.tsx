@@ -23,34 +23,37 @@ function Cart() {
   };
 
   const handleMakeOrder = () => {
-    const data = {
-      orderId: nanoid(5),
-      dateOrder: new Date().toLocaleDateString(),
-      itemsOrder: cartItems,
-      userId: currentUser._id,
-      confirm: false,
-    };
-    // @ts-ignore
-    dispath(createOrder(data));
-    // @ts-ignore
-    dispath(cartClear());
+    if (cartItems.length) {
+      const data = {
+        orderId: nanoid(5),
+        dateOrder: new Date().toLocaleDateString(),
+        itemsOrder: cartItems,
+        userId: currentUser._id,
+        confirm: false,
+      };
+      // @ts-ignore
+      dispath(createOrder(data));
+      // @ts-ignore
+      dispath(cartClear());
+      setOpen(!isOpen);
+    }
   };
 
-  const handleDecrimentCount = (id) => {
+  const handleDecrimentCount = (id: string) => {
     // @ts-ignore
     dispath(cartDecreaseCountItem(id));
   };
 
-  const handleIncrementCount = (id) => {
+  const handleIncrementCount = (id: string) => {
     // @ts-ignore
     dispath(cartIncreaseCountItem(id));
   };
 
   return (
-    <div className="dropdown p-2 border rounded-lg border-orange-400 mr-4">
+    <div className="dropdown p-1 border rounded-lg border-orange-400 mr-4">
       <button
         onClick={() => setOpen(!isOpen)}
-        className="py-4 px-1 relative border-2 border-transparent text-gray-800 rounded-full hover:text-orange-400 focus:outline-none focus:text-gray-500 transition duration-1000 ease-in-out"
+        className="py-4 px-1 relative border-2 border-transparent text-gray-800 rounded-full hover:text-orange-400 focus:outline-none focus:text-gray-500 transition duration-1000 ease-in-out "
         aria-label="Cart"
       >
         <svg
@@ -74,7 +77,13 @@ function Cart() {
           )}
         </span>
       </button>
-      <div className={isOpen ? "hidden" : "dropdown-menu right-0 absolute  text-gray-700 z-10 mt-5 bg-stone-100 "}>
+      <div
+        className={
+          isOpen
+            ? "hidden"
+            : "dropdown-menu p-2 border-2 border-orange-400 right-60 absolute  text-gray-700 z-10 mt-5 bg-stone-100 "
+        }
+      >
         <h2 className="text-xl font-semibold">Your cart</h2>
         <ul className="flex flex-col divide-y divide-gray-700">
           {cartItems.map((phone) => {
@@ -166,7 +175,7 @@ function Cart() {
           <button
             onClick={handleMakeOrder}
             type="button"
-            className="px-6 py-2 border rounded-md dark:bg-orange-400 dark:text-gray-900 dark:border-orange-400"
+            className="px-6 py-2 border rounded-md dark:bg-orange-400 dark:text-gray-900 dark:border-orange-400 transform active:scale-95 transition-transform"
           >
             <span className="sr-only sm:not-sr-only">Make an order</span>
           </button>

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const TextField = ({ label, type, name, value, onChange, error, placeholder }) => {
-  const handleChange = ({ target }) => {
+  const handleChange = ({ target }: { target: { name: string; value: string } }) => {
     onChange({ name: target.name, value: target.value });
   };
   const getInputClasses = () => {

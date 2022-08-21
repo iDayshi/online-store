@@ -2,7 +2,7 @@ export function validator(data, config) {
   const errors = {};
 
   function validate(validateMethod, data, config) {
-    let statusValidate;
+    let statusValidate: boolean;
 
     switch (validateMethod) {
       case "isRequired": {
